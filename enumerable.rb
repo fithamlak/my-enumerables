@@ -1,20 +1,13 @@
-module MyEnumerable
-  def my_each
-    for i in 0..self.size-1
-      yield(self[i])
-    end
-  end
-end
-
+require_relative 'enumarable_functions'
 class MyList
-  include MyEnumerable
+  include MyEnumerables
 
-  def initialize
-    @list = []
+  def initialize(*elements)
+    @list = elements
   end
 
-  def each
-    @list.my_each { |item| yield item }
+  def each(&block)
+    @list.each(&block)
   end
 end
 
