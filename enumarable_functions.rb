@@ -5,18 +5,17 @@ module MyEnumerables
     end
     true
   end
+
   def any?
     each do |pattern|
       return true if yield(pattern)
     end
     false
   end
-  def filter 
-    matching = [] each { 
-      |e| matching.push(e) 
-      if yield(e) 
-      } 
-    matching 
-  end 
 
+  def filter
+    matching = []
+    each { |e| matching.push(e) if yield(e) }
+    matching
+  end
 end
