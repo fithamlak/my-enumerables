@@ -11,4 +11,12 @@ module MyEnumerables
     end
     false
   end
+  def filter 
+    matching = [] each { 
+      |e| matching.push(e) 
+      if yield(e) 
+      } 
+    matching 
+  end 
+
 end
